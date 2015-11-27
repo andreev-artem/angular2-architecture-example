@@ -19,7 +19,7 @@
 
     "gulp": "^3.9.0",
     "gulp-typescript": "^2.8.0",
-    "gulp-protractor": "~1.0.0",
+    "gulp-protractor": "https://github.com/mattfritz/gulp-protractor",
     "gulp-load-plugins": "~1.1.0",
     "gulp-util": "~3.0.4",
     "run-sequence": "~1.1.0",
