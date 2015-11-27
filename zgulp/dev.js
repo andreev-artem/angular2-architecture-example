@@ -129,10 +129,10 @@ module.exports = function(options) {
         new KarmaServer({
             configFile: options.PROJECT_PATH + '/tests/karma.conf.js',
             singleRun: true,
-            browsers: ['PhantomJS2'],
+            browsers: ['PhantomJS'],
             plugins: [
                 'karma-jasmine',
-                'karma-phantomjs2-launcher',
+                'karma-phantomjs-launcher',
                 'karma-coverage'
             ],
             reporters: ['coverage', 'dots']
