@@ -104,6 +104,7 @@ module.exports = function(options) {
     gulp.task('dist-serve', function() {
         var bsOptions = _.cloneDeep(options.bsOptions);
         bsOptions.server.baseDir = options.paths.dist;
+        bsOptions.port = 8080;
         bs.init(bsOptions);
     });
 
@@ -125,6 +126,7 @@ module.exports = function(options) {
         .pipe(protractor({
             configFile: options.PROJECT_PATH + '/tests/protractor.conf.js',
             args: [
+                '--baseUrl', 'http://localhost:8080',
                 '--capabilities.browserName', 'firefox'
             ]
         })).on('error', errorHandler('protractor', true)).on('end', function () {
