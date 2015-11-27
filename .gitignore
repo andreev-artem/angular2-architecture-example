@@ -1,0 +1,10 @@
+.idea/*
+*node_modules*
+app/index*.html
+app/js/*
+app/css/*
+app/fonts/bootstrap/*
+app/sass/bootstrap/*
+app/ts/config.ts
+dist/*
+coverage/*
