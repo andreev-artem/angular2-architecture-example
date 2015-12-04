@@ -122,17 +122,23 @@ module.exports = function(options) {
 
     var protractor = require('gulp-protractor').protractor;
     gulp.task('dist-e2e', ['webdriver_update', 'dist-serve'], function(cb) {
-        gulp.src([])
-        .pipe(protractor({
+        var config = {
             configFile: options.PROJECT_PATH + '/tests/protractor.conf.js',
             args: [
                 '--baseUrl', 'http://localhost:8080',
                 //'--capabilities.browserName', 'firefox'
             ]
-        })).on('error', errorHandler('protractor', true)).on('end', function () {
+        };
+        // https://github.com/angular/protractor/issues/2765
+        //if (process.env.TRAVIS) {
+        //    config.args.push('--capabilities.chromeOptions.binary', options.PROJECT_PATH + '/chrome-linux/chrome');
+        //}
+        gulp.src([])
+        .pipe(protractor(config))
+        .on('error', errorHandler('protractor', true))
+        .on('end', function () {
             bs.exit();
             cb();
-
         });
     });
 

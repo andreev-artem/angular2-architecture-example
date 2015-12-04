@@ -8,7 +8,10 @@ exports.config = {
     ],
 
     capabilities: {
-        'browserName': 'chrome'
+        'browserName': 'chrome',
+        'chromeOptions': {
+            'args': ['no-sandbox']
+        }
     },
 
     baseUrl: 'http://localhost',
@@ -17,11 +20,22 @@ exports.config = {
 
     onPrepare: function() {
         browser.driver.manage().window().setSize(1280, 900);
-    },
 
+        //browser.getProcessedConfig().then(function(config) {
+        //    console.log('Executing capability', config.capabilities);
+        //});
+        //
+        //return browser.driver.getCapabilities().then(function (capabilitites) {
+        //    console.log('WebDriver capabilities ', capabilitites);
+        //})
+    },
     rootElement: 'app',
 
     jasmineNodeOpts: {
         defaultTimeoutInterval: 30000
     }
 };
+
+if (process.env.TRAVIS) {
+    exports.config.capabilities.chromeOptions.binary = require('path').join(__dirname, '../chrome-linux/chrome');
+}

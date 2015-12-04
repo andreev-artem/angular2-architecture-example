@@ -1,4 +1,4 @@
-# Experiments with a possible Angular2 project architecture
+# Experiments with a possible Angular2 project architecture [![Build Status][travis-image]][travis-url]
 
 It should cover the following tasks:
 
@@ -28,6 +28,10 @@ It should cover the following tasks:
     - [ ] ... to be continued
 - [x] production gulp tasks
 - [ ] CI
+    - [x] build
+    - [x] unit
+    - [x] e2e using Chrome
+    - [ ] e2e using FF
 - [ ] [Hot Loader](http://blog.mgechev.com/2015/10/26/angular2-hot-loader-hot-loading-tooling/)
 
 ## Installing Local Env
@@ -49,7 +53,7 @@ It should cover the following tasks:
     
 * `gulp unit`
 
-    run unit-tests in auto-watch mode using PhantomJS2
+    run unit-tests in auto-watch mode using PhantomJS
     
 * `gulp unit --browser=Chrome`
 
@@ -57,7 +61,7 @@ It should cover the following tasks:
     
 * `gulp ci-unit`
 
-    run unit-tests in continuous integration mode using PhantomJS2
+    run unit-tests in continuous integration mode using PhantomJS
     
 * `gulp e2e`
 
@@ -69,4 +73,7 @@ It should cover the following tasks:
     
 * `gulp dist-e2e`
 
-    run e2e tests for the dist version app (`gulp build` must be run before) using Firefox
+    run e2e tests for the dist version app (`gulp build` must be run before)
+
+[travis-image]:https://travis-ci.org/andreev-artem/angular2-architecture-example.svg?branch=master
+[travis-url]: https://travis-ci.org/andreev-artem/angular2-architecture-example

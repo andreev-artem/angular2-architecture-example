@@ -5,7 +5,10 @@ before_install:
   - npm install -g gulp
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
+# downloads latest nightly
+#  - curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
+# 47.0.2526.0 (https://www.chromium.org/getting-involved/download-chromium)
+  - curl -Lo chrome.zip https://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64/352221/chrome-linux.zip && unzip chrome.zip
 script:
   - gulp build
   - gulp ci-unit
