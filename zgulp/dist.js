@@ -127,7 +127,7 @@ module.exports = function(options) {
             configFile: options.PROJECT_PATH + '/tests/protractor.conf.js',
             args: [
                 '--baseUrl', 'http://localhost:8080',
-                '--capabilities.browserName', 'firefox'
+                //'--capabilities.browserName', 'firefox'
             ]
         })).on('error', errorHandler('protractor', true)).on('end', function () {
             bs.exit();
