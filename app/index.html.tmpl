@@ -19,9 +19,15 @@
 <script src="/js/libs/system.src.js"></script>
 <script>
     System.config({
-        defaultJSExtensions: true
+        defaultJSExtensions: true,
+        paths: {
+            'rxjs/add/observable/*' : 'node_modules/rxjs/add/observable/*.js',
+            'rxjs/add/operator/*' : 'node_modules/rxjs/add/operator/*.js',
+            'rxjs/*' : 'node_modules/rxjs/*.js'
+        }
     });
 </script>
+<!-- it's much faster to load whole Angular2 than resolving and loading separate modules using SystemJS -->
 <script src="/js/libs/angular2.js"></script>
 <script src="/js/libs/http.js"></script>
 <script>

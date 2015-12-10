@@ -13,9 +13,14 @@ System.config({
         'angular2': {
             defaultExtension: false
         },
-        'base/app': {
+        'base': {
             defaultExtension: 'js'
         }
+    },
+    paths: {
+        'rxjs/add/observable/*' : 'base/node_modules/rxjs/add/observable/*.js',
+        'rxjs/add/operator/*' : 'base/node_modules/rxjs/add/operator/*.js',
+        'rxjs/*' : 'base/node_modules/rxjs/*.js'
     }
 });
 

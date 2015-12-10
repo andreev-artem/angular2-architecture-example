@@ -21,7 +21,9 @@ var options = {
                     '^(/css/.*)$ $1 [L]',
                     '^(/fonts/.*)$ $1 [L]',
                     '^(/js/.*)$ $1 [L]',
+                    '^(/node_modules/.*)$ $1 [L]',
                     // mocked app
+                    '^/mocked(/node_modules/.*)$ $1 [L]',
                     '^/mocked/$ /index_mocked.html [L]',
                     '^/mocked/.*$ /index_mocked.html [L]',
                     // regular app

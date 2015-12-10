@@ -1,5 +1,6 @@
 import {Injectable} from 'angular2/angular2';
 import {URLSearchParams} from 'angular2/http';
+import 'rxjs/add/operator/map';
 import {Api} from "./_api";
 
 @Injectable()

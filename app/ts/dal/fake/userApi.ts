@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/angular2';
 import {URLSearchParams} from 'angular2/http';
-import {Observable} from 'angular2/angular2';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/fromArray';
 
 @Injectable()
 export class UserFakeApi {

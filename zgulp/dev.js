@@ -103,7 +103,7 @@ module.exports = function(options) {
 
     gulp.task('serve', function() {
         var bsOptions = _.cloneDeep(options.bsOptions);
-        bsOptions.server.baseDir = APP_PATH;
+        bsOptions.server.baseDir = [APP_PATH, options.PROJECT_PATH];
         bs.init(bsOptions);
     });
 
