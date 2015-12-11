@@ -24,7 +24,8 @@ It should cover the following tasks:
     - [x] - base skeleton with helpers and simple examples
     - [ ] - more complex project components e2e-tests
 - [ ] more complex project components
-    - [ ] routing
+    - [x] routing
+    - [ ] search in https://github.com/angular/angular/issues using Algolia
     - [ ] ... to be continued
 - [x] production gulp tasks
 - [ ] CI

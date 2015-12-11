@@ -30,6 +30,7 @@
 <!-- it's much faster to load whole Angular2 than resolving and loading separate modules using SystemJS -->
 <script src="/js/libs/angular2.js"></script>
 <script src="/js/libs/http.js"></script>
+<script src="/js/libs/router.js"></script>
 <script>
     System.import('/js/bootstrap<%= mocked ? "_mocked" : "" %>').catch(console.log.bind(console));
 </script>

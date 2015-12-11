@@ -3,7 +3,7 @@
 describe('home', () => {
 
     var page = e2e.pageFactory({
-        users: '$$.m-users li',
+        users: '$$.m-admin-users-list li',
         getUser: function (index) {
             var user = this.users.get(index);
 
@@ -17,7 +17,7 @@ describe('home', () => {
     });
 
     it('should display 10 users', () => {
-        browser.get('/mocked/');
+        browser.get('/mocked/admin');
 
         expect(page.users.count()).toBe(10);
     });

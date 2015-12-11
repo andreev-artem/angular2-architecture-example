@@ -1,0 +1,8 @@
+<div class="m-admin-users-list">
+    <ul>
+        <li *ngFor="#user of users">
+            <span class="m-user-full-name">{{user.getFullName()}}</span>
+            <span class="m-user-email">{{user.email}}</span>
+        </li>
+    </ul>
+</div>

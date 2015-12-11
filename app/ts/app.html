@@ -1,10 +1,9 @@
 <div class="m-app">
-    <h1 *ngIf="name">Hello, {{name}}!!!</h1>
 
-    <ul class="m-users">
-        <li *ngFor="#user of users">
-            <span class="m-user-full-name">{{user.getFullName()}}</span>
-            <span class="m-user-email">{{user.email}}</span>
-        </li>
-    </ul>
+    <navbar></navbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+
 </div>
