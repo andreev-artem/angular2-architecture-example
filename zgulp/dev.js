@@ -27,11 +27,6 @@ module.exports = function(options) {
         ]);
     });
 
-    gulp.task('copy-libs', function () {
-        return gulp.src(options.paths.libs)
-            .pipe(gulp.dest(APP_PATH + '/js/libs'));
-    });
-
     gulp.task('copy-bootstrap', function () {
         return gulp.src(options.paths.bootstrap)
             .pipe(gulp.dest(APP_PATH + '/sass/bootstrap'));
@@ -110,7 +105,7 @@ module.exports = function(options) {
     gulp.task('server', function(cb) {
         return $.runSequence(
             'clean',
-            ['copy-libs', 'copy-bootstrap', 'copy-config'],
+            ['copy-bootstrap', 'copy-config'],
             ['sass', 'ts2js', 'copy-html', 'index'],
             ['watch', 'serve'],
             cb

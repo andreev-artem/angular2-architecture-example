@@ -43,18 +43,6 @@ var options = {
     paths: {
         app: 'app',
         dist: 'dist',
-        libs: [
-            'node_modules/angular2/bundles/angular2.js',
-            'node_modules/angular2/bundles/angular2.min.js',
-            'node_modules/angular2/bundles/http.js',
-            'node_modules/angular2/bundles/http.min.js',
-            'node_modules/angular2/bundles/router.js',
-            'node_modules/angular2/bundles/router.min.js',
-            'node_modules/systemjs/dist/system.js',
-            'node_modules/systemjs/dist/system.src.js',
-            'node_modules/reflect-metadata/Reflect.js',
-            'node_modules/zone.js/dist/zone.js'
-        ],
         bootstrap: [
             'node_modules/bootstrap-sass/assets/stylesheets/bootstrap/**'
         ],
@@ -68,8 +56,8 @@ var options = {
         distBundleSrc: 'app/js/bootstrap.js',
         distBundleMockedSrc: 'app/js/bootstrap_mocked.js',
         distLibs: [
-            'app/js/libs/Reflect.js',
-            'app/js/libs/zone.js'
+            'node_modules/reflect-metadata/Reflect.js',
+            'node_modules/zone.js/dist/zone.js'
         ],
         appCss: 'app/css/**',
         appIndex: 'app/index*.html',

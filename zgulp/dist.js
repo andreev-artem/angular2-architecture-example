@@ -36,11 +36,6 @@ module.exports = function(options) {
             .pipe(gulp.dest(`${options.paths.dist}/js`));
     });
 
-    gulp.task('dist-copy-libs', function () {
-        return gulp.src(options.paths.distLibs)
-            .pipe(gulp.dest(`${options.paths.tmp}/js/libs`));
-    });
-
     gulp.task('dist-copy-css', function () {
         return gulp.src(options.paths.appCss)
             .pipe(gulp.dest(`${options.paths.tmp}/css/`));
@@ -111,9 +106,9 @@ module.exports = function(options) {
     gulp.task('build', function(cb) {
         $.runSequence(
             ['clean', 'dist-clean'],
-            ['copy-libs', 'copy-bootstrap', 'copy-config'],
+            ['copy-bootstrap', 'copy-config'],
             ['sass', 'ts2js', 'dist-copy-html', 'dist-index'],
-            ['dist-copy-index', 'dist-copy-css', 'dist-copy-libs', 'dist-bundle-js', 'dist-bundle-mocked-js'],
+            ['dist-copy-index', 'dist-copy-css', 'dist-bundle-js', 'dist-bundle-mocked-js'],
             'dist-process-assets',
             'dist-remove-tmp',
             cb
