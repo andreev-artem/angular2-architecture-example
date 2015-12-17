@@ -18,9 +18,11 @@ module.exports = function (config) {
             'node_modules/systemjs/dist/system.src.js',
             'node_modules/systemjs/dist/system-polyfills.js', // PhantomJS2 requires it
 
+            'node_modules/reflect-metadata/Reflect.js',
+            'node_modules/zone.js/dist/zone.js',
             'node_modules/angular2/bundles/angular2.js',
             'node_modules/angular2/bundles/http.js',
-            'node_modules/angular2/bundles/testing.js',
+            'node_modules/angular2/bundles/testing.dev.js',
             {pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false},
             {pattern: 'app/js/**/*.js', included: false, watched: true},
 

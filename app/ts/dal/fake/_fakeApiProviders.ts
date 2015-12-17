@@ -1,4 +1,4 @@
-import {provide} from 'angular2/angular2';
+import {provide} from 'angular2/core';
 import {Http} from 'angular2/http';
 import {UserApi} from "../real/userApi";
 import {UserFakeApi} from "./userApi";

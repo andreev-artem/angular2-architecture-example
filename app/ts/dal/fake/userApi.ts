@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
 import {URLSearchParams} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromArray';

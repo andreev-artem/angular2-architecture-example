@@ -1,4 +1,4 @@
-import {Component, bootstrap, CORE_DIRECTIVES, provide} from 'angular2/angular2';
+import {Component, provide} from 'angular2/core';
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
 import {
     RouteConfig,
