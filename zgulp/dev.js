@@ -39,6 +39,10 @@ module.exports = function(options) {
 
     gulp.task('copy-config', function (cb) {
         fs.copySync(
+            `${options.PROJECT_PATH}/${APP_PATH}/ts/configs/configBase.ts`.replace('/', path.sep),
+            `${options.PROJECT_PATH}/${APP_PATH}/ts/configBase.ts`.replace('/', path.sep)
+        );
+        fs.copySync(
             `${options.PROJECT_PATH}/${APP_PATH}/ts/configs/${argv.env || 'sandbox'}.ts`.replace('/', path.sep),
             `${options.PROJECT_PATH}/${APP_PATH}/ts/config.ts`.replace('/', path.sep)
         );
@@ -69,9 +73,9 @@ module.exports = function(options) {
 
     gulp.task('watch', function() {
 
-        gulp.watch([
-            APP_PATH + '/ts/**/*.ts'
-        ], ['ts2js']);
+        gulp.watch(options.paths.ts, ['ts2js']);
+
+        gulp.watch(options.paths.configs, ['copy-config']);
 
         gulp.watch([
             APP_PATH + '/ts/**/*.html'

@@ -53,6 +53,7 @@ var options = {
             'app/ts/**/*.ts',
             '!app/ts/configs/**'
         ],
+        configs: ['app/ts/configs/**'],
         distBundleSrc: 'app/js/bootstrap.js',
         distBundleMockedSrc: 'app/js/bootstrap_mocked.js',
         distLibs: [

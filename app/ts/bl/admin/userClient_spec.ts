@@ -7,9 +7,9 @@ import {
     it
 } from 'angular2/testing';
 import {provide} from 'angular2/core';
+import {AdminServer} from "../../dal/servers/adminServer";
 import {UserClient} from "./userClient";
-import {UserApi} from "../dal/real/userApi";
-import {Api} from "../dal/real/_api";
+import {UserApi} from "../../dal/api/userApi";
 import {Observable} from 'rxjs/Rx';
 
 export function main() {
@@ -26,7 +26,7 @@ export function main() {
     describe('getAll', () => {
 
         beforeEachProviders(() => [
-            provide(Api, {useValue: {}}),
+            provide(AdminServer, {useValue: {}}),
             provide(UserApi, {useClass: MockUserApi}),
             UserClient
         ]);

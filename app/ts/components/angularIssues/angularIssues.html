@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 well">
+            <div class="text-center">
+                <button class="btn" (click)="onUpdateIssues()">Update {{issuesPages * 100}} latest issues</button>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+            <ul>
+                <!--<li *ngFor="#issue of issues">-->
+                    <!--{{issue.title}}-->
+                    <!--<br>-->
+                    <!--{{issue.labelsDict | json}}-->
+                <!--</li>-->
+
+                <li *ngFor="#facet of facets">
+                    {{facet.name}}
+                    <ul>
+                        <li *ngFor="#entry of facet.values">
+                            {{entry.name}}: {{entry.value}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
-import {UserClient} from "../../../bl/userClient";
-import {User} from "../../../bl/user";
+import {UserClient} from "../../../bl/admin/userClient";
+import {User} from "../../../bl/admin/user";
 
 @Component({
     selector: 'list',

@@ -1,5 +1,5 @@
 import {Injectable} from 'angular2/core';
-import {UserApi} from "../dal/real/userApi";
+import {UserApi} from "../../dal/api/userApi";
 import {User} from "./user";
 
 @Injectable()
