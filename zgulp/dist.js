@@ -106,7 +106,7 @@ module.exports = function(options) {
     gulp.task('build', function(cb) {
         $.runSequence(
             ['clean', 'dist-clean'],
-            ['copy-bootstrap', 'copy-config'],
+            ['copy-bootstrap', 'copy-config', 'generate-modules-sass'],
             ['sass', 'ts2js', 'dist-copy-html', 'dist-index'],
             ['dist-copy-index', 'dist-copy-css', 'dist-bundle-js', 'dist-bundle-mocked-js'],
             'dist-process-assets',

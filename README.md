@@ -11,7 +11,7 @@ It should cover the following tasks:
          Will be replaced by a Fake API layer for e2e.
         * `fake/*` - Fake API layer for e2e
     * `bl` - Business layer - your business reusable logic which will be used by components (send/retrieve, caching, validation, common logic, etc).
-    * `components` - components with pages logic.
+    * `components` - components with pages logic, related unit-tests and styles.
     * ... - any other semantically-named sets of project-specific entities (eg: cards, actions, widgets, etc)
 
 - [x] project skeleton
@@ -29,7 +29,7 @@ It should cover the following tasks:
     - [x] CI - Travis
 - [ ] functionality
     - [x] very-very basic app functionality (actually almost nothing - just load some data from server (production/sandbox/fake) and display list)
-    - [ ] search ans statistic for https://github.com/angular/angular/issues using Algolia
+    - [ ] search for https://github.com/angular/angular/issues using Algolia
         - [x] retrieve issues from GitHub => process => add/update on Algolia
         - [x] display facets
         - [x] showMore directive

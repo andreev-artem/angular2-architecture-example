@@ -1,7 +1,10 @@
 'use strict';
 
 var gulp = require('gulp');
-var fs = require('fs-extra');
+var fs = require('fs');
+var os = require('os');
+var fsExtra = require('fs-extra');
+var globby = require('globby');
 var del = require('del');
 var _ = require('lodash');
 var path = require('path');
@@ -38,11 +41,11 @@ module.exports = function(options) {
     });
 
     gulp.task('copy-config', function (cb) {
-        fs.copySync(
+        fsExtra.copySync(
             `${options.PROJECT_PATH}/${APP_PATH}/ts/configs/configBase.ts`.replace('/', path.sep),
             `${options.PROJECT_PATH}/${APP_PATH}/ts/configBase.ts`.replace('/', path.sep)
         );
-        fs.copySync(
+        fsExtra.copySync(
             `${options.PROJECT_PATH}/${APP_PATH}/ts/configs/${argv.env || 'sandbox'}.ts`.replace('/', path.sep),
             `${options.PROJECT_PATH}/${APP_PATH}/ts/config.ts`.replace('/', path.sep)
         );
@@ -65,6 +68,18 @@ module.exports = function(options) {
         return tsResult.js.pipe(gulp.dest(APP_PATH + '/js'));
     });
 
+    gulp.task('generate-modules-sass', function () {
+        return globby(options.paths.modulesSass.src).then(function (paths) {
+            return fs.writeFile(
+                options.paths.modulesSass.dest,
+                paths.map(path => {
+                    path = path.replace(`${path.sep}`, '/').replace(`app/ts`, '../ts');
+                    return `@import '${path}';${os.EOL}`;
+                })
+            )
+        });
+    });
+
     gulp.task('sass', function () {
         gulp.src(APP_PATH + '/sass/style.scss')
         .pipe($.sass().on('error', $.sass.logError))
@@ -77,10 +92,20 @@ module.exports = function(options) {
 
         gulp.watch(options.paths.configs, ['copy-config']);
 
+        gulp.watch(options.paths.modulesSass.src).on('add', function () {
+            gulp.start('generate-modules-sass');
+        });
+
+        gulp.watch([
+            APP_PATH + '/**/*.scss'
+        ]).on('change', function (file) {
+            gulp.start('sass');
+        });
+
         gulp.watch([
             APP_PATH + '/ts/**/*.html'
         ]).on('change', function (file) {
-            fs.copySync(file.path, file.path.replace(`app${path.sep}ts`, `app${path.sep}js`));
+            fsExtra.copySync(file.path, file.path.replace(`app${path.sep}ts`, `app${path.sep}js`));
         });
 
         gulp.watch([
@@ -109,7 +134,7 @@ module.exports = function(options) {
     gulp.task('server', function(cb) {
         return $.runSequence(
             'clean',
-            ['copy-bootstrap', 'copy-config'],
+            ['copy-bootstrap', 'copy-config', 'generate-modules-sass'],
             ['sass', 'ts2js', 'copy-html', 'index'],
             ['watch', 'serve'],
             cb

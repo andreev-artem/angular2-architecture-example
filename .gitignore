@@ -9,3 +9,4 @@ app/ts/config.ts
 dist/*
 coverage/*
 app/ts/configBase.ts
+app/sass/_modules.scss

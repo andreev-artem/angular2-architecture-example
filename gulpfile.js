@@ -63,7 +63,8 @@ var options = {
         appCss: 'app/css/**',
         appIndex: 'app/index*.html',
         distIndex: 'dist/index*.html',
-        tmp: '.tmp'
+        tmp: '.tmp',
+        modulesSass: {src: ['app/ts/**/*.scss'], dest: 'app/sass/_modules.scss'}
     }
 };
 

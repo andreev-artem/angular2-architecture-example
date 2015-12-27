@@ -1,21 +1,25 @@
-<div class="container-fluid">
+<div class="angular-issues">
     <div class="row">
-        <div class="col-md-3 well">
-            <p class="text-center">
-                <button class="btn" (click)="onUpdateIssues()">Update {{issuesPages * 100}} latest issues</button>
-            </p>
+        <div class="angular-issues__controls">
+            <div class="angular-issues__update-control-container">
+                <button class="angular-issues__update-control" (click)="onUpdateIssues()">
+                    Update {{issuesPages * 100}} latest issues
+                </button>
+            </div>
 
-            <div class="list-group">
-                <div class="list-group-item"
+            <div class="angular-issues__filters">
+                <div class="angular-issues__filter"
                      *ngFor="#facet of facets"
                      [moreLess]="{on: facet.values.length, show: 5}" #MoreLess="moreLess">
-                    <h5 class="list-group-item-heading">{{facet.name}}</h5>
-                    <ul class="list-unstyled list-group-item-text">
-                        <li *ngFor="#entry of facet.values | pureSlice:0:MoreLess.limit">
+                    <h5 class="angular-issues__filter-heading">{{facet.name}}</h5>
+                    <ul class="angular-issues__filter-values">
+                        <li class="angular-issues__filter-value"
+                            *ngFor="#entry of facet.values | pureSlice:0:MoreLess.limit">
                             {{entry.name}}: {{entry.value}}
                         </li>
                     </ul>
-                    <button class="btn btn-link btn-sm" *ngIf="MoreLess.hasToggle" (click)="MoreLess.toggle()">
+                    <button class="angular-issues__filter-more-less"
+                            *ngIf="MoreLess.hasToggle" (click)="MoreLess.toggle()">
                         <span *ngIf="MoreLess.isCollapsed">Show more</span>
                         <span *ngIf="!MoreLess.isCollapsed">Show less</span>
                     </button>

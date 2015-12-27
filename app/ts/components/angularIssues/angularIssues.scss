@@ -1,0 +1,48 @@
+.angular-issues {
+    @extend .container-fluid;
+
+    &__controls {
+        @extend .col-md-3;
+        @extend .well;
+    }
+
+    &__update-control-container{
+        @extend .text-center;
+
+        margin-bottom: $line-height-computed / 2;
+    }
+
+    &__update-control{
+        @extend .btn;
+
+    }
+
+    &__filters {
+        @extend .list-group;
+    }
+
+    &__filter {
+        @extend .list-group-item;
+
+        &-heading {
+            @extend .list-group-item-heading;
+        }
+
+        &-values {
+            @extend .list-unstyled;
+            @extend .list-group-item-text;
+        }
+
+        &-value {
+            $btn-border-width: 1px;
+            margin-left: $padding-small-horizontal + $btn-border-width;
+        }
+
+        &-more-less {
+            @extend .btn;
+            @extend .btn-link;
+            @extend .btn-sm;
+        }
+    }
+}
+
