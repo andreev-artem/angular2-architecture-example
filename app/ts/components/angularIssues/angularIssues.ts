@@ -2,11 +2,14 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {IssuesClient} from "../../bl/gitHub/issuesClient";
 import {Issue} from "../../bl/gitHub/issue";
+import {MoreLess} from "../../directives/moreLess";
+import {SlicePipe} from "../../pipes/purePipe";
 
 @Component({
     selector: 'angularIssues',
     templateUrl: '/js/components/angularIssues/angularIssues.html',
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, MoreLess],
+    pipes: [SlicePipe]
 })
 export class AngularIssues {
 

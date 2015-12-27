@@ -32,6 +32,7 @@ It should cover the following tasks:
     - [ ] search ans statistic for https://github.com/angular/angular/issues using Algolia
         - [x] retrieve issues from GitHub => process => add/update on Algolia
         - [x] display facets
+        - [x] showMore directive
         - [ ] unit-tests
         - [ ] e2e
         - [ ] filter using facets
