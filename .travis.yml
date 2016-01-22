@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "4.1"
+env:
+  - CXX=g++-4.8
 before_install:
   - npm install -g gulp
   - export DISPLAY=:99.0
@@ -13,3 +15,9 @@ script:
   - gulp build
   - gulp ci-unit
   - gulp dist-e2e
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
