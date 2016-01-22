@@ -69,7 +69,8 @@ module.exports = function(options) {
             .pipe($.useref({searchPath: options.paths.tmp}))
             .pipe($.if('**/*.js',
                 $.lazypipe()
-                .pipe($.uglify, {preserveComments: $.uglifySaveLicense})
+                // temporarily disabled due a bunch of issues with minification in beta.1
+                //.pipe($.uglify, {preserveComments: $.uglifySaveLicense})
                 .pipe($.header, options.banner, options)
                 .pipe($.rev)
                 ()
